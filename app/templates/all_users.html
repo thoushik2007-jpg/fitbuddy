@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FitBuddy - All Users
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        FIT<span>BUDDY</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/view-all-users">
+            Users
+        </a>
+
+        <a href="/docs">
+            API Docs
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+<section class="result-header">
+
+    <div class="badge">
+        DATABASE
+    </div>
+
+
+    <h1>
+        All Users
+    </h1>
+
+
+    <p>
+        Users and their generated fitness plans.
+    </p>
+
+</section>
+
+
+
+{% if users %}
+
+
+    {% for user in users %}
+
+
+    <section class="user-card">
+
+
+        <div class="user-card-header">
+
+            <div>
+
+                <h2>
+                    {{ user.name }}
+                </h2>
+
+                <p>
+                    User ID:
+                    <strong>
+                        {{ user.user_id }}
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <div class="goal-badge">
+
+                {{ user.goal }}
+
+            </div>
+
+        </div>
+
+
+
+        <div class="user-details">
+
+
+            <div>
+
+                <small>
+                    AGE
+                </small>
+
+                <strong>
+                    {{ user.age }}
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <small>
+                    WEIGHT
+                </small>
+
+                <strong>
+                    {{ user.weight }} kg
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <small>
+                    HEIGHT
+                </small>
+
+                <strong>
+                    {{ user.height }} cm
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <small>
+                    GENDER
+                </small>
+
+                <strong>
+                    {{ user.gender }}
+                </strong>
+
+            </div>
+
+
+
+            <div>
+
+                <small>
+                    ACTIVITY
+                </small>
+
+                <strong>
+                    {{ user.activity_level }}
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        {% if user.plans %}
+
+            {% set latest_plan = user.plans[-1] %}
+
+
+            <div class="stored-plan">
+
+                <div class="small-title">
+                    LATEST PLAN
+                </div>
+
+
+                <pre>{{ latest_plan.original_plan }}</pre>
+
+
+                {% if latest_plan.updated_plan %}
+
+                    <div class="small-title">
+                        UPDATED PLAN
+                    </div>
+
+
+                    <pre>
+{{ latest_plan.updated_plan }}
+                    </pre>
+
+                {% endif %}
+
+
+                {% if latest_plan.feedback %}
+
+                    <div class="small-title">
+                        USER FEEDBACK
+                    </div>
+
+
+                    <div class="feedback-box">
+
+                        {{ latest_plan.feedback }}
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+
+        {% else %}
+
+            <p class="muted">
+                No workout plan generated yet.
+            </p>
+
+        {% endif %}
+
+
+    </section>
+
+
+    {% endfor %}
+
+
+{% else %}
+
+
+<section class="result-card empty-card">
+
+    <h2>
+        No Users Found
+    </h2>
+
+    <p>
+        Generate your first fitness plan from the home page.
+    </p>
+
+
+    <a
+        href="/"
+        class="back-button"
+    >
+        Create First Plan
+    </a>
+
+</section>
+
+
+{% endif %}
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        FitBuddy © 2026
+    </p>
+
+    <p>
+        AI Fitness Plan Generator
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

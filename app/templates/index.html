@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        FitBuddy - AI Fitness Plan Generator
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        FIT<span>BUDDY</span>
+
+    </div>
+
+
+    <nav>
+
+        <a href="/">
+            Home
+        </a>
+
+        <a href="/view-all-users">
+            Users
+        </a>
+
+        <a href="/docs">
+            API Docs
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            AI FITNESS ASSISTANT
+        </div>
+
+
+        <h1>
+
+            Your Personal
+
+            <span>
+                AI Fitness Coach
+            </span>
+
+        </h1>
+
+
+        <p>
+
+            Generate a personalized 7-day workout
+            and nutrition plan based on your body,
+            fitness goal and activity level.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<section class="form-card">
+
+    <div class="section-heading">
+
+        <div>
+
+            <div class="small-title">
+                GET STARTED
+            </div>
+
+            <h2>
+                Create Your Fitness Plan
+            </h2>
+
+            <p>
+                Enter your details and let FitBuddy
+                create your personalized plan.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <form
+        action="/generate"
+        method="post"
+    >
+
+
+        <div class="form-grid">
+
+
+            <div class="form-group">
+
+                <label>
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    User ID
+                </label>
+
+                <input
+                    type="text"
+                    name="user_id"
+                    placeholder="Example: FB001"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Age
+                </label>
+
+                <input
+                    type="number"
+                    name="age"
+                    min="13"
+                    max="100"
+                    placeholder="20"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Weight (kg)
+                </label>
+
+                <input
+                    type="number"
+                    name="weight"
+                    min="20"
+                    max="500"
+                    step="0.1"
+                    placeholder="70"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Height (cm)
+                </label>
+
+                <input
+                    type="number"
+                    name="height"
+                    min="80"
+                    max="250"
+                    step="0.1"
+                    placeholder="170"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Gender
+                </label>
+
+                <select
+                    name="gender"
+                    required
+                >
+
+                    <option value="">
+                        Select gender
+                    </option>
+
+                    <option value="Male">
+                        Male
+                    </option>
+
+                    <option value="Female">
+                        Female
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Fitness Goal
+                </label>
+
+                <select
+                    name="goal"
+                    required
+                >
+
+                    <option value="">
+                        Select goal
+                    </option>
+
+                    <option value="Weight Loss">
+                        Weight Loss
+                    </option>
+
+                    <option value="Muscle Gain">
+                        Muscle Gain
+                    </option>
+
+                    <option value="General Wellness">
+                        General Wellness
+                    </option>
+
+                    <option value="Flexibility">
+                        Flexibility
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Activity Level
+                </label>
+
+                <select
+                    name="activity_level"
+                    required
+                >
+
+                    <option value="">
+                        Select activity level
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="Advanced">
+                        Advanced
+                    </option>
+
+                </select>
+
+            </div>
+
+
+        </div>
+
+
+
+        <button
+            type="submit"
+            class="generate-button"
+        >
+
+            Generate My AI Plan
+
+            <span>
+                →
+            </span>
+
+        </button>
+
+
+    </form>
+
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        FitBuddy © 2026
+    </p>
+
+    <p>
+        AI Fitness Plan Generator
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

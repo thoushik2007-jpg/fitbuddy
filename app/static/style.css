@@ -1,0 +1,1216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg: #070a08;
+
+    --card: rgba(15, 21, 17, 0.96);
+
+    --card-light: #131b15;
+
+    --border: #273229;
+
+    --green: #a8ff3e;
+
+    --green-dark: #6eaf20;
+
+    --text: #f4f7f4;
+
+    --muted: #929d95;
+
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    color: var(--text);
+
+    background:
+
+        linear-gradient(
+            rgba(7, 10, 8, 0.91),
+            rgba(7, 10, 8, 0.97)
+        ),
+
+        url("/static/images/gym-bg.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+header {
+
+    height: 72px;
+
+    padding: 0 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-bottom:
+        1px solid var(--border);
+
+    background:
+        rgba(7, 10, 8, 0.94);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.logo span {
+
+    color: var(--green);
+
+}
+
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+}
+
+
+nav a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+
+}
+
+
+nav a:hover {
+
+    color: var(--green);
+
+}
+
+
+main {
+
+    width: 90%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 65px 0;
+
+}
+
+
+.hero {
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.hero-content {
+
+    max-width: 850px;
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    color: var(--green);
+
+    border: 1px solid
+        rgba(168, 255, 62, 0.35);
+
+    background:
+        rgba(168, 255, 62, 0.06);
+
+    padding: 8px 15px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(
+        45px,
+        7vw,
+        78px
+    );
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+
+    letter-spacing: -3px;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--green);
+
+}
+
+
+.hero p {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    color: var(--muted);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+.form-card,
+.result-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 35px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0, 0, 0, 0.25);
+
+}
+
+
+.section-heading {
+
+    margin-bottom: 30px;
+
+}
+
+
+.small-title {
+
+    color: var(--green);
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.form-card h2,
+.result-card h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.section-heading p,
+.result-card > p {
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+}
+
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.form-group label {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #dce3de;
+
+}
+
+
+input,
+select,
+textarea {
+
+    width: 100%;
+
+    border:
+        1px solid var(--border);
+
+    background: #090d0a;
+
+    color: var(--text);
+
+    border-radius: 11px;
+
+    padding: 14px 15px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    border-color: var(--green);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(168, 255, 62, 0.08);
+
+}
+
+
+select option {
+
+    background: #101510;
+
+}
+
+
+.generate-button {
+
+    border: none;
+
+    background: var(--green);
+
+    color: #071006;
+
+    padding: 15px 24px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    margin-top: 28px;
+
+    transition: 0.2s;
+
+}
+
+
+.generate-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(168, 255, 62, 0.15);
+
+}
+
+
+.generate-button span {
+
+    margin-left: 8px;
+
+    font-size: 18px;
+
+}
+
+
+.result-header {
+
+    margin-bottom: 30px;
+
+}
+
+
+.result-header h1 {
+
+    font-size: 50px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.result-header p {
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+}
+
+
+.profile-card {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.profile-item {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    padding: 20px;
+
+    border-radius: 15px;
+
+}
+
+
+.profile-item small,
+.user-details small {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.profile-item strong {
+
+    display: block;
+
+    font-size: 15px;
+
+}
+
+
+.card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+
+}
+
+
+pre {
+
+    margin-top: 20px;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+
+    overflow-x: auto;
+
+    background: #080c09;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    color: #e5ebe6;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    line-height: 1.75;
+
+}
+
+
+.tip-box {
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background:
+        rgba(168, 255, 62, 0.05);
+
+    border:
+        1px solid
+        rgba(168, 255, 62, 0.18);
+
+    border-radius: 13px;
+
+    color: #dbe5dd;
+
+    line-height: 1.7;
+
+}
+
+
+textarea {
+
+    margin-top: 20px;
+
+    resize: vertical;
+
+    min-height: 130px;
+
+}
+
+
+.back-button {
+
+    display: inline-block;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    border:
+        1px solid var(--border);
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+
+}
+
+
+.back-button:hover {
+
+    color: var(--green);
+
+    border-color: var(--green);
+
+}
+
+
+.updated-card {
+
+    border-color:
+        rgba(168, 255, 62, 0.35);
+
+}
+
+
+.muted {
+
+    color: var(--muted);
+
+    line-height: 1.7;
+
+}
+
+
+.user-card {
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.user-card-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.user-card-header h2 {
+
+    margin-bottom: 7px;
+
+}
+
+
+.user-card-header p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+.goal-badge {
+
+    color: var(--green);
+
+    background:
+        rgba(168, 255, 62, 0.08);
+
+    border:
+        1px solid
+        rgba(168, 255, 62, 0.2);
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+}
+
+
+.user-details {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.user-details > div {
+
+    background:
+        #0a0f0c;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+}
+
+
+.user-details strong {
+
+    font-size: 14px;
+
+}
+
+
+.stored-plan {
+
+    margin-top: 20px;
+
+}
+
+
+.feedback-box {
+
+    background:
+        #080c09;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    color: #dbe5dd;
+
+    line-height: 1.6;
+
+    margin-top: 10px;
+
+}
+
+
+.empty-card {
+
+    text-align: center;
+
+}
+
+
+footer {
+
+    border-top:
+        1px solid var(--border);
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+footer p + p {
+
+    margin-top: 7px;
+
+}
+
+
+@media (max-width: 850px) {
+
+    header {
+
+        padding: 0 4%;
+
+    }
+
+
+    main {
+
+        width: 94%;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .profile-card {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .user-details {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    nav {
+
+        gap: 12px;
+
+    }
+
+
+    nav a {
+
+        font-size: 11px;
+
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+
+    main {
+
+        padding: 40px 0;
+
+    }
+
+
+    .hero {
+
+        min-height: 330px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 45px;
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .form-card,
+    .result-card,
+    .user-card {
+
+        padding: 22px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .profile-card {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .user-details {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .result-header h1 {
+
+        font-size: 38px;
+
+    }
+
+
+    .user-card-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+}
+/* =========================================
+   FITBUDDY RESULT PAGE
+   ========================================= */
+
+
+.container {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+
+/* =========================================
+   PROFILE CARDS
+   ========================================= */
+
+.profile-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.stat-card {
+
+    background: rgba(12, 20, 15, 0.95);
+
+    border: 1px solid rgba(168, 255, 62, 0.15);
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    min-height: 80px;
+
+}
+
+
+.stat-card span {
+
+    display: block;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    color: #a8ff3e;
+
+    margin-bottom: 12px;
+
+    font-weight: 600;
+
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================
+   RESULT CARDS
+   ========================================= */
+
+.result-card {
+
+    background: rgba(12, 20, 15, 0.96);
+
+    border: 1px solid rgba(168, 255, 62, 0.15);
+
+    border-radius: 22px;
+
+    padding: 38px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.result-card h1 {
+
+    color: white;
+
+    font-size: 32px;
+
+    margin: 8px 0 25px;
+
+}
+
+
+.section-label {
+
+    color: #a8ff3e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   WORKOUT PLAN
+   ========================================= */
+
+.plan-box {
+
+    background: #050905;
+
+    border: 1px solid rgba(168, 255, 62, 0.15);
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    overflow-x: auto;
+
+}
+
+
+.plan-box pre {
+
+    color: #eeeeee;
+
+    white-space: pre-wrap;
+
+    word-wrap: break-word;
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.7;
+
+    margin: 0;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================
+   NUTRITION
+   ========================================= */
+
+.nutrition-box {
+
+    background: rgba(30, 55, 15, 0.6);
+
+    border: 1px solid rgba(168, 255, 62, 0.25);
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    color: #eeeeee;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================
+   FEEDBACK
+   ========================================= */
+
+.result-card textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    background: #050905;
+
+    border: 1px solid rgba(168, 255, 62, 0.2);
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    color: white;
+
+    font-size: 15px;
+
+    resize: vertical;
+
+    margin: 15px 0;
+
+}
+
+
+.result-card textarea:focus {
+
+    outline: none;
+
+    border-color: #a8ff3e;
+
+}
+
+
+.result-card button {
+
+    background: #a8ff3e;
+
+    color: #071007;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px 24px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.result-card button:hover {
+
+    opacity: 0.9;
+
+}
+
+
+.description {
+
+    color: #a8aaa8;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 900px) {
+
+    .profile-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .profile-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .result-card {
+
+        padding: 22px;
+
+    }
+
+
+    .result-card h1 {
+
+        font-size: 25px;
+
+    }
+
+}

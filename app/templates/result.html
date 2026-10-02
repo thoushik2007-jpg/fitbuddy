@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitBuddy - Your Fitness Plan</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        FIT<span>BUDDY</span>
+    </div>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        <a href="/view-all-users">Users</a>
+
+        <a href="/docs">API Docs</a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- USER INFORMATION -->
+
+    <section class="profile-grid">
+
+
+        <div class="stat-card">
+
+            <span>USER</span>
+
+            <strong>
+                {{ user_name }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>AGE</span>
+
+            <strong>
+                {{ user_age }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>WEIGHT</span>
+
+            <strong>
+                {{ user_weight }} kg
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>HEIGHT</span>
+
+            <strong>
+                {{ user_height }} cm
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>GENDER</span>
+
+            <strong>
+                {{ user_gender }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>GOAL</span>
+
+            <strong>
+                {{ user_goal }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>ACTIVITY</span>
+
+            <strong>
+                {{ user_activity }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>BMI</span>
+
+            <strong>
+                {{ bmi }}
+            </strong>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>BMI RANGE</span>
+
+            <strong>
+                {{ bmi_status }}
+            </strong>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- WORKOUT PLAN -->
+
+    <section class="result-card">
+
+        <div class="section-label">
+            AI GENERATED
+        </div>
+
+        <h1>
+            7-Day Workout Plan
+        </h1>
+
+
+        <div class="plan-box">
+
+            <pre>{{ workout_plan }}</pre>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- NUTRITION TIP -->
+
+    <section class="result-card">
+
+        <div class="section-label">
+            GEMINI AI
+        </div>
+
+        <h1>
+            Nutrition & Recovery Tip
+        </h1>
+
+
+        <div class="nutrition-box">
+
+            {{ nutrition_tip }}
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BASIC NUTRITION -->
+
+    <section class="result-card">
+
+        <div class="section-label">
+            FITBUDDY GUIDANCE
+        </div>
+
+        <h1>
+            Basic Nutrition
+        </h1>
+
+
+        <div class="plan-box">
+
+            <pre>{{ basic_nutrition }}</pre>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FEEDBACK -->
+
+    <section class="result-card">
+
+        <div class="section-label">
+            FEEDBACK
+        </div>
+
+        <h1>
+            Improve Your Plan
+        </h1>
+
+
+        <p class="description">
+
+            Tell FitBuddy what you want to change.
+            The AI will create an updated plan.
+
+        </p>
+
+
+        <form
+            action="/update-plan"
+            method="post"
+        >
+
+
+            <input
+                type="hidden"
+                name="plan_id"
+                value="{{ plan_id }}"
+            >
+
+
+            <textarea
+                name="feedback"
+                rows="6"
+                placeholder="Example: Day 2 is too difficult. Reduce the number of exercises."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+
+                Update Plan with AI
+
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+</main>
+
+
+</body>
+
+</html>
